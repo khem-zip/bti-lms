@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%block title%} LOGIN {%endblock%}
+
+{%block body%}
+<br>
+<div class="row mt-5">
+    <div class="col shadow-sm p-4">
+        <h4 class="text-center fw-light">Login | LMS</h4> <hr>
+        <form class="mt-5">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">Enter your college email here.</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            
+            <div class="d-flex justify-content-center mt-5">
+                <button type="submit" class="btn btn-primary">Login to the LMS</button>
+            </div>
+          </form>
+
+    </div>
+    <div class="col">
+            <img src="https://imgs.search.brave.com/egxkeMA6qBfiZ1GCDZZ4WhwaBS-d2o78wNYyPqA4kTo/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNTA4/MTMxNzIyL3Bob3Rv/L2NoaWxkLWxpdHRs/ZS1naXJsLXdpdGgt/Z2xhc3Nlcy1yZWFk/aW5nLWEtYm9va3Mu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PUhqYTVQaGVPUnVN/dWNkZGxMckM2VXlJ/eEMtQW91S3JreHh4/MVc5ZmstUUk9" alt="">
+    </div>
+</div>
+
+{%endblock%}
