@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import UserDetail, Batch
 
-# Register your models here.
+
+admin.site.register(UserDetail)
+admin.site.register(Batch)

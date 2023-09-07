@@ -1,10 +1,34 @@
 {%extends 'base.html'%}
+{% load static %}
 {%block title%} {{request.user.username}} {%endblock%}
 
 {%block body%}
 <br>
-<h4>Profile Page</h4>
-<p>logged in as {{request.user.username}}</p>
+
+<div class="mt-4 col-lg-6 mx-auto border p-4">
+    <div class="text-center">
+        <img src="{% static 'images/pp.png'%}" height="200" class="img-rounded" alt="pp">
+        <h5 title="Verified User" class="mt-4  text-center">{{user.userdetail.first_name}} {{user.userdetail.last_name}} <svg  xmlns="http://www.w3.org/2000/svg" height="0.8em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#17ee30}</style><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg></h5>
+        {% if user.userdetail.is_teacher %}
+        <p class="text-success">Professor</p>
+        {%else%}
+        <p class="text-warning">Student</p>
+        {%endif%}
+        <hr>
+
+    </div>
+    <div class="text-center  p-4">
+        <p>First Name: <strong>{{user.userdetail.first_name}}</strong></p>
+        <p>Last Name: <strong>{{user.userdetail.last_name}}</strong></p>
+        <p>Email: <strong>{{user.userdetail.email}}</strong></p>
+        <p>Contact: <strong>{{user.userdetail.contact}}</strong></p>
+        <button class="btn btn-outline-primary btn-sm">Update Information</button>
+
+
+    </div>
+    
+</div>
+
 
 
 {%endblock%}
