@@ -1,0 +1,10 @@
+{%extends 'base.html'%}
+{%block title%} {{request.user.username}} {%endblock%}
+
+{%block body%}
+<br>
+<h4>Profile Page</h4>
+<p>logged in as {{request.user.username}}</p>
+
+
+{%endblock%}
