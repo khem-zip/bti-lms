@@ -1,9 +1,10 @@
 from django.urls import path
-from .views import note_view
+from .views import addnote_view,allnote_view
 
 
 app_name='note'
 
 urlpatterns=[
-    path('',note_view,name='note')
+    path('addnote/',addnote_view, name='addnote'),
+    path('allnote/',allnote_view, name='allnote')
 ]
