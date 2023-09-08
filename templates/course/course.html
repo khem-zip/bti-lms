@@ -1,0 +1,42 @@
+{%extends 'base.html'%}
+{%block title%} Course {%endblock%}
+
+{%block body%}
+
+<style>
+    .course:hover{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    color: blue;
+    transition: 0.9s;
+}
+</style>
+<div class="my-3 py-4 bg-white text-center shadow-sm fw-light">
+    <h4>My Courses & Learning Plans</h4>
+</div>
+
+<div class="my-2 container">
+    <div class="row p-0">
+        {% for i in courses %}
+        <div class="col-lg-3 col-md-4 col-6   p-2  mb-3" >
+            <div class="bg-white border course"  >
+            <a  href="{% url 'course:detail' id=i.id %}" class="text-decoration-none text-dark  ">
+               
+                    <img src="{{i.pic.url}}" class="img-fluid" alt="coursepic">
+
+                <span class="badge bg-danger mx-3 mt-2 ">{{i.cr_hours}} credits</span>
+            <div class="p-3">
+                <h6 class="">{{i.name}}</h6>
+                <small title="{{i.desc}}" style="font-size: 12px;" >{{i.desc|truncatechars:75}}</small>
+                 
+            </div>
+        </a>
+    </div>
+
+        </div>
+        {%empty%}
+        <p class="text-center p-5 m-5">No Courses found.</p>
+        {%endfor%}
+    </div>
+</div>
+
+{%endblock%}

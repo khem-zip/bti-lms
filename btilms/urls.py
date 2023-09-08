@@ -21,6 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('userauth.urls')),
     path('note/',include('note.urls')),
+    path('notice/',include('notice.urls')),
+    path('course/',include('course.urls')),
 ]
 from django.conf import settings
 from django.conf.urls.static import static

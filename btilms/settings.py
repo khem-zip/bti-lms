@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'userauth',
     'note',
+    'notice',
+    'course',
+    'bootstrap5'
 ]
 
 MIDDLEWARE = [
