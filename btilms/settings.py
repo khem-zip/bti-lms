@@ -48,7 +48,11 @@ INSTALLED_APPS = [
     'note',
     'notice',
     'course',
-    'bootstrap5'
+    'bootstrap5',
+     "admin_interface",
+    "colorfield",
+    'article',
+    'django_summernote'
 ]
 
 MIDDLEWARE = [

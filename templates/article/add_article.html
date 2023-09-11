@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+{% load bootstrap5 %}
+{%block title%} ADd Article {%endblock%}
+
+{%block body%}
+<div class="my-3 py-4 bg-white text-center shadow-sm fw-light">
+    <h4>Add Article</h4>
+</div>
+
+<div class="bg-white shadow-sm p-4">
+    <form action="" method="post" enctype="multipart/form-data">
+
+        {%csrf_token%}
+        {% bootstrap_form form %}
+<hr>
+    <div class="d-flex justify-content-center">
+        <button type="submit" class="btn  btn-primary"> Publish Article</button>
+
+    </div>
+    </form>
+
+</div>
+{%endblock%}

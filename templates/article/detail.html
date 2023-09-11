@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+{%block title%} Course {%endblock%}
+
+{%block body%}
+
+
+<div class="my-3 py-4 bg-white text-center shadow-sm fw-light">
+    <h4>{{article.title}}</h4>
+</div>
+
+<div class="bg-white shadow-sm py-2 px-3">
+    <p>{{article.content|safe}}</p>
+
+</div>
+
+
+{%endblock%}

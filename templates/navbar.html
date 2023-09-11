@@ -3,7 +3,7 @@
   {% if user.userdetail.is_student%} 
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">BTI-LMS</a>
+      <a class="navbar-brand" href="{% url 'course:course' %}">BTI-LMS</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -37,47 +37,54 @@
   {%else%}
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">BTI-LMS</a>
+      <a class="navbar-brand" href="{% url 'userauth:profile' %}">BTI-LMS</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ">
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'userauth:profile'%}"><svg xmlns="http://www.w3.org/2000/svg" height="0.7em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg> {{request.user.username}}</a>
+            <a class="nav-link" href="{% url 'userauth:profile' %}"><svg xmlns="http://www.w3.org/2000/svg" height="0.7em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg> {{request.user.username}}</a>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Notes
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="{% url 'note:allnote'%}">All Notes</a></li>
-              <li><a class="dropdown-item" href="{% url 'note:addnote'%}">Add Note</a></li>
-            </ul>
-        </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Notices
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="{% url 'notice:allnotice'%}">All Notices</a></li>
-              <li><a class="dropdown-item" href="{% url 'notice:addnotice'%}">Add Notice</a></li>
-            </ul>
-        </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Routine
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="">All Routines</a></li>
-              <li><a class="dropdown-item" href="">Add Routine</a></li>
-            </ul>
-        </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="return confirm('Do you really want to logout?')" href="{% url 'userauth:logout'%}">Logout</a>
-          </li>
+          <button class="btn btn-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></button>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasRightLabel">BTI-LMS Professor Mode</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div> <hr>
+  <div class="offcanvas-body">
+
+
+        <li><a class="dropdown-item" href="{% url 'article:add_article'%}">Publish Article</a></li>
+
+        <hr>
+    
+      
+        <li><a class="dropdown-item" href="{% url 'note:allnote'%}">All Notes</a></li>
+        <li><a class="dropdown-item" href="{% url 'note:addnote'%}">Add Note</a></li>
+     
+        <hr>
+     
+        <li><a class="dropdown-item" href="{% url 'notice:allnotice'%}">All Notices</a></li>
+        <li><a class="dropdown-item" href="{% url 'notice:addnotice'%}">Add Notice</a></li>
+     
+        <hr>
+
+        <li><a class="dropdown-item" href="">All Routines</a></li>
+        <li><a class="dropdown-item" href="">Add Routine</a></li>
+      
+        <hr>
+
+    <li>
+      <a class="dropdown-item text-danger" onclick="return confirm('Do you really want to logout?')" href="{% url 'userauth:logout'%}">Logout</a>
+    </li>
+    
+  </div>
+</div>
+        
      
         </ul>
       </div>

@@ -23,7 +23,15 @@ urlpatterns = [
     path('note/',include('note.urls')),
     path('notice/',include('notice.urls')),
     path('course/',include('course.urls')),
+    path('article/',include('article.urls')),
+    path('summernote/', include('django_summernote.urls')),
 ]
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns +=static(settings.MEDIA_URL,document_root= settings.MEDIA_ROOT)
+
+
+
+admin.site.site_title = "BTI-LMS Admistration"
+admin.site.site_header = "BTI-LMS Admistration"
+admin.site.index_title = "BTI-LMS Admistration"

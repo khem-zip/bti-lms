@@ -7,21 +7,45 @@
 <div class="my-3 py-4 bg-white text-center shadow-sm fw-light">
     <h4>{{course.name}}</h4>
 </div>
-<div class="my-3 bg-white p-3">
-    <h5 class="my-3">All Notes</h5> <hr>
-
-    {% for i in notes%}
-    <div class="mb-2 d-flex justify-content-between">
-        <a href="{{i.file.url}}" download="{{i.file.url}}">{{i.name}}</a>
-        <p><small>uploaded by</small>: {{i.uploader.userdetail.first_name}} {{i.uploader.userdetail.last_name}}</p>
-        <p><small>uploaded time</small>: {{i.date}}</p>
-
+<div class="row">
+    <div class="col-lg-8 my-3 mx-2  bg-white p-3">
+        <h5 class="my-3">All Notes</h5> <hr>
+    
+        {% for i in notes%}
+        <div class="mb-2 d-flex justify-content-between">
+            <a href="{{i.file.url}}" download="{{i.file.url}}">{{i.name}}</a>
+            <p><small>uploaded by</small>: {{i.uploader.userdetail.first_name}} {{i.uploader.userdetail.last_name}}</p>
+            <p><small>uploaded time</small>: {{i.date}}</p>
+    
+        </div>
+        <hr>
+        {%empty%}
+        <p class="text-center p-5 m-5">No notes available.</p>
+        {%endfor%}
     </div>
-    <hr>
-    {%empty%}
-    <p class="text-center p-5 m-5">No notes available.</p>
-    {%endfor%}
+    <div class="col  my-3 bg-white p-3">
+        <h5 class="my-3">Associated Articles</h5> <hr>
+    
+        {% for i in articles%}
+        <a href="{% url 'article:article_detail' id=i.id %}" class="text-decoration-none text-dark">
+            <div class="mb-2 d-flex justify-content-between">
+                <div><img src="{{i.img.url}}" alt="image" height="100"></div>
+                <div class="ms-2 ">
+                    <h5>{{i.title}}</h5>
+                    <small><span>Published by: <strong>{{i.author.userdetail.first_name}} {{i.author.userdetail.last_name}}</strong></span></small><br>
+                    <small><span><i>Date: <strong>{{i.date}}</strong></i></span></small>
+                </div>
+               
+        
+            </div>
+        </a>
+        <hr>
+        {%empty%}
+        <p class="text-center p-5 m-5">No articles published.</p>
+        {%endfor%}
+    </div>
 </div>
+
 
 
 

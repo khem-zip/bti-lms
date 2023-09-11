@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+{%block title%} Note {%endblock%}
+
+{%block body%}
+<div class="my-3 py-4 bg-white text-center shadow-sm fw-light">
+    <h4>Notes added by you</h4>
+</div>
+<div class=" my-3   bg-white p-3">
+    <h5 class="my-3">All Notes</h5> <hr>
+
+    {% for i in notes%}
+    <div class="mb-2 d-flex justify-content-between">
+        <a href="{{i.file.url}}" download="{{i.file.url}}">{{i.name}}</a>
+        <p><small>uploaded time</small>: {{i.date}}</p>
+
+        <div class="btn-group">
+            <a onclick="return confirm('Are you sure ?')" href="{% url 'note:delete_note' id=i.id %}" class="btn btn-danger btn-sm me-2" >Delete</a>
+            <a href="{% url 'note:update' id=i.id %}" class="btn btn-outline-primary btn-sm" >Update</a href="{% url 'note:update' id=i.id %}">
+        </div>
+
+    </div>
+    <hr>
+    {%empty%}
+    <p class="text-center p-5 m-5">No notes available.</p>
+    {%endfor%}
+</div>
+{%endblock%}
