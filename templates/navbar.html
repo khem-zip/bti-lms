@@ -18,13 +18,12 @@
             <a class="nav-link" href="{% url 'course:course'%}">My Courses</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'note:allnote'%}">Note</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Notice</a>
+            <a class="nav-link" href="{% url 'notice:allnotice'%}">Notices</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Routine</a>
+            <a class="nav-link" href="{% url 'routine:routine'%}">Routines</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" onclick="return confirm('Do you really want to logout?')" href="{% url 'userauth:logout'%}">Logout</a>
@@ -69,7 +68,6 @@
         <hr>
      
         <li><a class="dropdown-item" href="{% url 'notice:allnotice'%}">All Notices</a></li>
-        <li><a class="dropdown-item" href="{% url 'notice:addnotice'%}">Add Notice</a></li>
      
         <hr>
 

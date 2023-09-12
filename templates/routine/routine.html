@@ -1,0 +1,83 @@
+{%extends 'base.html'%}
+{% load static %}
+{% load routinedays %}
+{%block title%} Routine {%endblock%}
+
+{%block body%}
+
+<style>
+    .rdetail{
+        cursor: pointer;
+    }
+</style>
+
+<div class="my-3 py-3 bg-white text-center shadow-sm fw-light">
+    <h4>Your Routine</h4>
+</div>
+
+<div class="justify-content-around ">
+    
+    {% if routine %}
+
+    <table class="table ">
+        <thead class="table-dark">
+          <tr class="text-center">
+           
+            {% for i in routine.routinedays %}
+            <th scope="col">{{i.day}}</th>
+            {%endfor%}
+           
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="text-center">
+              {% for i in routine.routinedays %}
+              <th scope="row ">
+              {% for j in i.day|dayfilter:routine.id %}
+
+              <div class="rdetail border p-3 bg-info mb-2" title="Click to see details." data-bs-toggle="modal" data-bs-target="#exampleModal{{j.id}}">
+                {{j.time}} 
+
+
+
+
+
+                <!-- Modal -->
+<div class="modal fade" id="exampleModal{{j.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{j.day}} | {{j.time}} </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <p>Professor: {{j.teacher.userdetail.first_name}} {{j.teacher.userdetail.last_name}}</p>
+         <p class="fw-light">Course: {{j.course.name}}</p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+              </div>
+    {%endfor%}
+    </th>
+    {%endfor%}
+              
+    
+    
+</tr>
+        
+        </tbody>
+      </table>
+
+      {%else%}
+      <p class="m-5 p-5 text-center"> No routine assigned.</p>
+      {%endif%}
+
+
+</div>
+
+
+
+{%endblock%}

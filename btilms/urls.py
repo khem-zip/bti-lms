@@ -24,6 +24,7 @@ urlpatterns = [
     path('notice/',include('notice.urls')),
     path('course/',include('course.urls')),
     path('article/',include('article.urls')),
+    path('routine/',include('routine.urls')),
     path('summernote/', include('django_summernote.urls')),
 ]
 from django.conf import settings

@@ -52,7 +52,8 @@ INSTALLED_APPS = [
      "admin_interface",
     "colorfield",
     'article',
-    'django_summernote'
+    'django_summernote',
+    'routine'
 ]
 
 MIDDLEWARE = [

@@ -10,7 +10,7 @@
     transition: 0.9s;
 }
 </style>
-<div class="my-3 py-4 bg-white text-center shadow-sm fw-light">
+<div class="my-3 py-3 bg-white text-center shadow-sm fw-light">
     <h4>My Courses & Learning Plans</h4>
 </div>
 
@@ -26,7 +26,7 @@
                 <span class="badge bg-danger mx-3 mt-2 ">{{i.cr_hours}} credits</span>
             <div class="p-3">
                 <h6 class="">{{i.name}}</h6>
-                <small title="{{i.desc}}" style="font-size: 12px;" >{{i.desc|truncatechars:75}}</small>
+                <small title="{{i.desc}}" style="font-size: 12px;" >{{i.desc|truncatechars:65}}</small>
                  
             </div>
         </a>

@@ -1,7 +1,10 @@
 from django.shortcuts import render
+from .models import NoticeBoard
+from datetime import date
 
-# Create your views here.
-def addnotice_view(request):
-    return render(request,'notice/addnotice.html')
+
+
 def allnotice_view(request):
-    return render(request,'notice/allnotice.html')
+    notices = NoticeBoard.objects.all().order_by('-id')
+    today = date.today()
+    return render(request,'notice/notice.html',{'notices':notices, 'today':today})

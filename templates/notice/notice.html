@@ -1,0 +1,64 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block title%} Notice {%endblock%}
+
+{%block body%}
+<style>
+    .font-small{
+  font-size: 12px;
+  font-weight: bold;
+
+
+}
+
+.noticeboard {
+    /* display: flex; */
+    flex-wrap: wrap; /* Allow items to wrap to the next row */
+}
+
+/* Apply styles to each individual item */
+.item {
+    width: calc(33.33% - 10px); /* Calculate 33.33% width for three items with a bit of spacing */
+    margin-bottom: 20px; /* Adjust spacing between rows as needed */
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    position: relative;
+}
+</style>
+
+<div class="my-3 py-3 bg-white text-center shadow-sm fw-light">
+    <h4>All Notices</h4>
+</div>
+
+<div class="d-flex noticeboard  justify-content-start">
+    
+    {% for i in notices%}
+    <div class="item shadow-sm p-4 me-2  mb-3 bg-white position-relative">
+        {% if i.date == today %}
+        <span class="position-absolute top-0 start-70 translate-middle badge rounded-pill bg-danger">
+            today
+          </span>
+          {%endif%}
+        <h5 class="">{{i.subject}}
+  
+           
+        </h5>
+        <small class="font-small">{{i.date}}</small><br> <br>
+        <small>{{i.content|safe}}</small>
+        {%if i.file %}
+        <br> <br>
+        <a href="{{i.file.url}}" target="_blank" class="btn btn-info btn-sm">Attachment</a>
+       
+        {%endif%}
+    
+        
+    </div>
+{%empty%}
+{%endfor%}
+
+</div>
+
+
+
+{%endblock%}
