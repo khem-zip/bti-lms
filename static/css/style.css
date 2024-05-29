@@ -1,9 +1,13 @@
 *{
   font-family: 'Poppins', sans-serif;
 }
- 
+ body{
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll; 
+ }
   /* ============= Animation background ========= */
-  .background {
+  /* .background {
     background: linear-gradient(132deg, #fc415a34, #591bc537, #21233550);
     background-size: 400% 400%;
     animation: Gradient 15s ease infinite;
@@ -13,7 +17,7 @@
     overflow: scroll;
     padding:0;
     margin:0px;
-  }
+  } */
   .cube {
     position: absolute;
     top: 80vh;
@@ -96,3 +100,83 @@
   border-radius: 0% !important;
 }
 
+
+
+/* ... (previous CSS code) ... */
+
+.anish-mode {
+  background: linear-gradient(132deg, #fc415a34, #591bc537, #07070700);
+  animation: Gradient 15s ease infinite;
+  position: relative;
+  height: 400%;
+  width: 100%;
+  /* overflow: scroll; */
+  padding:0;
+  margin:0px;
+}
+
+/* Slider Styles */
+.slider-container {
+  display: flex;
+  align-items: center;
+  margin-top: 7px;
+}
+
+.slider {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 15px;
+  margin-right: 10px;
+}
+
+.slider input[type="checkbox"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider-circle {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 17px;
+}
+
+.slider-circle:before {
+  content: "";
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input[type="checkbox"]:checked + .slider-circle {
+  background-color: #2196F3;
+}
+
+input[type="checkbox"]:checked + .slider-circle:before {
+  -webkit-transform: translateX(15px);
+  -ms-transform: translateX(15px);
+  transform: translateX(15px);
+}
+
+
+/* ... (other styles) ... */
+
+
+
+body::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}

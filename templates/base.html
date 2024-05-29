@@ -20,7 +20,7 @@
             {%endblock%}
   </head>
   
-  <body class="background">
+  <body class="bg-light">
  
 
     <div class="container">
@@ -53,10 +53,40 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
     <script>
-       window.addEventListener("load", function () {
-            document.body.classList.add("page-loaded");
-        });
+      const themeToggle = document.getElementById("theme-toggle");
+  const themeLink = document.getElementById("theme-link");
+  
+  // Function to set the theme based on the user's preference
+  function setTheme(theme) {
+      if (theme === "anish") {
+          document.body.classList.remove("anish-mode");
+          themeToggle.checked = false;
+      } else {
+          document.body.classList.add("anish-mode");
+          themeToggle.checked = true;
+      }
+  }
+  
+  // Function to toggle the theme
+  function toggleTheme() {
+      const currentTheme = localStorage.getItem("theme") || "normal";
+      const newTheme = currentTheme === "normal" ? "anish" : "normal";
       
-    </script>
+      localStorage.setItem("theme", newTheme);
+      setTheme(newTheme);
+      if (currentTheme === "anish"){
+        setTimeout(anish_message, 2000);
+      }      
+  }
+  function anish_message(){
+    alert("मिठो कलर छैन त ! 😅")
+  }
+  // Initialize the theme based on user's preference
+  setTheme(localStorage.getItem("theme") || "normal");
+  
+  // Add a click event listener to the theme toggle
+  themeToggle.addEventListener("click", toggleTheme);
+  
+  </script>
   </body>
 </html>
